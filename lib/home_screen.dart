@@ -46,7 +46,20 @@ class _HomeScreenState extends State<HomeScreen> {
               return ListView.builder(
                 itemCount: postslist.length,
                   itemBuilder: (context, index){
-                  return Text(index.toString());
+                  return Card(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Title', style: TextStyle(fontWeight: FontWeight.bold),),
+                        Text(postslist[index].title.toString()),
+                        SizedBox(height: 10,),
+                        Text('Description', style: TextStyle(fontWeight: FontWeight.bold),),
+                        Text(postslist[index].body.toString()),
+
+                      ],
+                    ),
+                  );
                   }
               );
             }
