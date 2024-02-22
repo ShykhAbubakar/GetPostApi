@@ -32,6 +32,26 @@ class _HomeScreenState extends State<HomeScreen> {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Center(child: Text('Get Post API', style: TextStyle(color: Colors.white),)),
+      ),
+      body: FutureBuilder(
+          future: getpostapi(),
+          builder: (context, snapshot){
+            if(!snapshot.hasData){
+              return Text('Loading');
+            } else {
+              return ListView.builder(
+                itemCount: postslist.length,
+                  itemBuilder: (context, index){
+                  return Text(index.toString());
+                  }
+              );
+            }
+          }
+      )
+    );
   }
 }
